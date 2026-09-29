@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="t" x1="0" y1="6.6" x2="0" y2="30.6" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F5F8FC"/><stop offset="1" stop-color="#C6CEDA"/></linearGradient>
+    <linearGradient id="l" x1="3.85" y1="18.6" x2="24.63" y2="54.6" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#A3AEBD"/><stop offset="1" stop-color="#6B7687"/></linearGradient>
+    <linearGradient id="d" x1="45.42" y1="18.6" x2="58.76" y2="57.72" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FF9A4D"/><stop offset="1" stop-color="#FF4A10"/></linearGradient>
+  </defs>
+  <polygon points="24.63,6.6 45.42,18.6 24.63,30.6 3.85,18.6" fill="url(#t)"/>
+  <polygon points="3.85,18.6 24.63,30.6 24.63,54.6 3.85,42.6" fill="url(#l)"/>
+  <polygon points="24.63,30.6 45.42,18.6 45.42,42.6 24.63,54.6" fill="#161B24"/>
+  <polygon points="26.09,31.44 43.96,21.12 43.96,41.76 26.09,52.08" fill="#0B0E13"/>
+  <polygon points="45.42,18.6 58.76,33.72 58.76,57.72 45.42,42.6" fill="url(#d)"/>
+</svg>

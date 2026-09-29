@@ -1,0 +1,1099 @@
+{
+ "assets": [
+  {
+   "cid": "12592",
+   "label": "Dishwasher",
+   "category": "Dishwasher",
+   "group": "Appliances",
+   "src": "PartNet-Mobility 12592",
+   "input_id": "openimages_7ed083073a0ed613",
+   "photo": "static/img/photos/12592.jpg",
+   "w": "static/assets/12592/w.webp",
+   "t": "static/assets/12592/t.webp",
+   "fw": 360,
+   "fh": 288,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "102786",
+   "label": "Kettle",
+   "category": "kettle",
+   "group": "Appliances",
+   "src": "PartNet-Mobility 102786",
+   "input_id": "openimages_0cc863049519f490",
+   "photo": "static/img/photos/102786.jpg",
+   "w": "static/assets/102786/w.webp",
+   "t": "static/assets/102786/t.webp",
+   "fw": 360,
+   "fh": 260,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "7236",
+   "label": "Microwave",
+   "category": "Microwave",
+   "group": "Appliances",
+   "src": "PartNet-Mobility 7236",
+   "input_id": "openimages_31a38d0914a7f9e7",
+   "photo": "static/img/photos/7236.jpg",
+   "w": "static/assets/7236/w.webp",
+   "t": "static/assets/7236/t.webp",
+   "fw": 360,
+   "fh": 221,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "7310",
+   "label": "Microwave",
+   "category": "Microwave",
+   "group": "Appliances",
+   "src": "PartNet-Mobility 7310",
+   "input_id": "openimages_263154604ac2b498",
+   "photo": "static/img/photos/7310.jpg",
+   "w": "static/assets/7310/w.webp",
+   "t": "static/assets/7310/t.webp",
+   "fw": 360,
+   "fh": 228,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "7366",
+   "label": "Microwave",
+   "category": "Microwave",
+   "group": "Appliances",
+   "src": "PartNet-Mobility 7366",
+   "input_id": "scene_026_coco_000000159791__det_003",
+   "photo": "static/img/photos/7366.jpg",
+   "w": "static/assets/7366/w.webp",
+   "t": "static/assets/7366/t.webp",
+   "fw": 360,
+   "fh": 225,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_1",
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "101943",
+   "label": "Oven",
+   "category": "Oven",
+   "group": "Appliances",
+   "src": "PartNet-Mobility 101943",
+   "input_id": "openimages_b74d085a68232a3f",
+   "photo": "static/img/photos/101943.jpg",
+   "w": "static/assets/101943/w.webp",
+   "t": "static/assets/101943/t.webp",
+   "fw": 360,
+   "fh": 273,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "7201",
+   "label": "Oven",
+   "category": "Oven",
+   "group": "Appliances",
+   "src": "PartNet-Mobility 7201",
+   "input_id": "openimages_1c638bccdd166c99",
+   "photo": "static/img/photos/7201.jpg",
+   "w": "static/assets/7201/w.webp",
+   "t": "static/assets/7201/t.webp",
+   "fw": 359,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_3",
+    "joint_4",
+    "joint_2",
+    "joint_0",
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "7290",
+   "label": "Oven",
+   "category": "Oven",
+   "group": "Appliances",
+   "src": "PartNet-Mobility 7290",
+   "input_id": "openimages_1f2dc2f1001d56d7",
+   "photo": "static/img/photos/7290.jpg",
+   "w": "static/assets/7290/w.webp",
+   "t": "static/assets/7290/t.webp",
+   "fw": 360,
+   "fh": 239,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "10489",
+   "label": "Refrigerator",
+   "category": "Refrigerator",
+   "group": "Appliances",
+   "src": "PartNet-Mobility 10489",
+   "input_id": "openimages_9e21c7896cb36b7a",
+   "photo": "static/img/photos/10489.jpg",
+   "w": "static/assets/10489/w.webp",
+   "t": "static/assets/10489/t.webp",
+   "fw": 345,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_2",
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "10849",
+   "label": "Refrigerator",
+   "category": "Refrigerator",
+   "group": "Appliances",
+   "src": "PartNet-Mobility 10849",
+   "input_id": "openimages_a10ea74b5eb3c47d",
+   "photo": "static/img/photos/10849.jpg",
+   "w": "static/assets/10849/w.webp",
+   "t": "static/assets/10849/t.webp",
+   "fw": 360,
+   "fh": 267,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "10905",
+   "label": "Refrigerator",
+   "category": "Refrigerator",
+   "group": "Appliances",
+   "src": "PartNet-Mobility 10905",
+   "input_id": "openimages_04b5017f1384f197",
+   "photo": "static/img/photos/10905.jpg",
+   "w": "static/assets/10905/w.webp",
+   "t": "static/assets/10905/t.webp",
+   "fw": 360,
+   "fh": 218,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "103361",
+   "label": "Washing machine",
+   "category": "WashingMachine",
+   "group": "Appliances",
+   "src": "PartNet-Mobility 103361",
+   "input_id": "openimages_daded832e3ae26b5",
+   "photo": "static/img/photos/103361.jpg",
+   "w": "static/assets/103361/w.webp",
+   "t": "static/assets/103361/t.webp",
+   "fw": 360,
+   "fh": 255,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "103490",
+   "label": "Washing machine",
+   "category": "WashingMachine",
+   "group": "Appliances",
+   "src": "PartNet-Mobility 103490",
+   "input_id": "openimages_c6d29ba9e0714789",
+   "photo": "static/img/photos/103490.jpg",
+   "w": "static/assets/103490/w.webp",
+   "t": "static/assets/103490/t.webp",
+   "fw": 311,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "45623",
+   "label": "Storage furniture",
+   "category": "StorageFurniture",
+   "group": "Furniture",
+   "src": "PartNet-Mobility 45623",
+   "input_id": "openimages_aea23ba36c9007e2",
+   "photo": "static/img/photos/45623.jpg",
+   "w": "static/assets/45623/w.webp",
+   "t": "static/assets/45623/t.webp",
+   "fw": 360,
+   "fh": 271,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "45747",
+   "label": "Storage furniture",
+   "category": "StorageFurniture",
+   "group": "Furniture",
+   "src": "PartNet-Mobility 45747",
+   "input_id": "openimages_8da3d7c3edb36065",
+   "photo": "static/img/photos/45747.jpg",
+   "w": "static/assets/45747/w.webp",
+   "t": "static/assets/45747/t.webp",
+   "fw": 342,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0",
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "46130",
+   "label": "Storage furniture",
+   "category": "StorageFurniture",
+   "group": "Furniture",
+   "src": "PartNet-Mobility 46130",
+   "input_id": "openimages_2623415850b406cf",
+   "photo": "static/img/photos/46130.jpg",
+   "w": "static/assets/46130/w.webp",
+   "t": "static/assets/46130/t.webp",
+   "fw": 360,
+   "fh": 289,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_2",
+    "joint_0",
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "46277",
+   "label": "Storage furniture",
+   "category": "StorageFurniture",
+   "group": "Furniture",
+   "src": "PartNet-Mobility 46277",
+   "input_id": "openimages_01c07a252e621523",
+   "photo": "static/img/photos/46277.jpg",
+   "w": "static/assets/46277/w.webp",
+   "t": "static/assets/46277/t.webp",
+   "fw": 360,
+   "fh": 278,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_1",
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "46981",
+   "label": "Storage furniture",
+   "category": "StorageFurniture",
+   "group": "Furniture",
+   "src": "PartNet-Mobility 46981",
+   "input_id": "openimages_10c183f776fe5e73",
+   "photo": "static/img/photos/46981.jpg",
+   "w": "static/assets/46981/w.webp",
+   "t": "static/assets/46981/t.webp",
+   "fw": 360,
+   "fh": 272,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_2",
+    "joint_0",
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "47632",
+   "label": "Storage furniture",
+   "category": "StorageFurniture",
+   "group": "Furniture",
+   "src": "PartNet-Mobility 47632",
+   "input_id": "openimages_c780bf71657c519c",
+   "photo": "static/img/photos/47632.jpg",
+   "w": "static/assets/47632/w.webp",
+   "t": "static/assets/47632/t.webp",
+   "fw": 360,
+   "fh": 237,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "48855",
+   "label": "Storage furniture",
+   "category": "StorageFurniture",
+   "group": "Furniture",
+   "src": "PartNet-Mobility 48855",
+   "input_id": "openimages_1b05c6608e880d1a",
+   "photo": "static/img/photos/48855.jpg",
+   "w": "static/assets/48855/w.webp",
+   "t": "static/assets/48855/t.webp",
+   "fw": 360,
+   "fh": 261,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0",
+    "joint_2",
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "20453",
+   "label": "Table",
+   "category": "Table",
+   "group": "Furniture",
+   "src": "PartNet-Mobility 20453",
+   "input_id": "openimages_d381c0b588f3daba",
+   "photo": "static/img/photos/20453.jpg",
+   "w": "static/assets/20453/w.webp",
+   "t": "static/assets/20453/t.webp",
+   "fw": 360,
+   "fh": 198,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "20985",
+   "label": "Table",
+   "category": "table",
+   "group": "Furniture",
+   "src": "PartNet-Mobility 20985",
+   "input_id": "openimages_a8b52a72aeee29d1",
+   "photo": "static/img/photos/20985.jpg",
+   "w": "static/assets/20985/w.webp",
+   "t": "static/assets/20985/t.webp",
+   "fw": 360,
+   "fh": 176,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "22241",
+   "label": "Table",
+   "category": "Table",
+   "group": "Furniture",
+   "src": "PartNet-Mobility 22241",
+   "input_id": "openimages_3030fcc2b2c9e66c",
+   "photo": "static/img/photos/22241.jpg",
+   "w": "static/assets/22241/w.webp",
+   "t": "static/assets/22241/t.webp",
+   "fw": 360,
+   "fh": 286,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "9070",
+   "label": "Door",
+   "category": "door",
+   "group": "Doors & windows",
+   "src": "PartNet-Mobility 9070",
+   "input_id": "openimages_ef06b701061b0838",
+   "photo": "static/img/photos/9070.jpg",
+   "w": "static/assets/9070/w.webp",
+   "t": "static/assets/9070/t.webp",
+   "fw": 329,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "9107",
+   "label": "Door",
+   "category": "door",
+   "group": "Doors & windows",
+   "src": "PartNet-Mobility 9107",
+   "input_id": "openimages_e02fe988857214ce",
+   "photo": "static/img/photos/9107.jpg",
+   "w": "static/assets/9107/w.webp",
+   "t": "static/assets/9107/t.webp",
+   "fw": 317,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "9288",
+   "label": "Door",
+   "category": "Door",
+   "group": "Doors & windows",
+   "src": "PartNet-Mobility 9288",
+   "input_id": "openimages_8d64efb831c496ed",
+   "photo": "static/img/photos/9288.jpg",
+   "w": "static/assets/9288/w.webp",
+   "t": "static/assets/9288/t.webp",
+   "fw": 265,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "102905",
+   "label": "Window",
+   "category": "window",
+   "group": "Doors & windows",
+   "src": "PartNet-Mobility 102905",
+   "input_id": "openimages_c398a7d19de8f4bc",
+   "photo": "static/img/photos/102905.jpg",
+   "w": "static/assets/102905/w.webp",
+   "t": "static/assets/102905/t.webp",
+   "fw": 293,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0",
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "102981",
+   "label": "Window",
+   "category": "Window",
+   "group": "Doors & windows",
+   "src": "PartNet-Mobility 102981",
+   "input_id": "openimages_32ec4cc7b95ce746",
+   "photo": "static/img/photos/102981.jpg",
+   "w": "static/assets/102981/w.webp",
+   "t": "static/assets/102981/t.webp",
+   "fw": 269,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0",
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "103312",
+   "label": "Window",
+   "category": "Window",
+   "group": "Doors & windows",
+   "src": "PartNet-Mobility 103312",
+   "input_id": "openimages_5476ddec2a1cf48e",
+   "photo": "static/img/photos/103312.jpg",
+   "w": "static/assets/103312/w.webp",
+   "t": "static/assets/103312/t.webp",
+   "fw": 321,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "103325",
+   "label": "Window",
+   "category": "window",
+   "group": "Doors & windows",
+   "src": "PartNet-Mobility 103325",
+   "input_id": "openimages_92f057f9c9625c93",
+   "photo": "static/img/photos/103325.jpg",
+   "w": "static/assets/103325/w.webp",
+   "t": "static/assets/103325/t.webp",
+   "fw": 289,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0",
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "102542",
+   "label": "Camera",
+   "category": "Camera",
+   "group": "Electronics",
+   "src": "PartNet-Mobility 102542",
+   "input_id": "openimages_298fc01140627fa5",
+   "photo": "static/img/photos/102542.jpg",
+   "w": "static/assets/102542/w.webp",
+   "t": "static/assets/102542/t.webp",
+   "fw": 360,
+   "fh": 215,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "102852",
+   "label": "Camera",
+   "category": "Camera",
+   "group": "Electronics",
+   "src": "PartNet-Mobility 102852",
+   "input_id": "openimages_35e49214017c6b2e",
+   "photo": "static/img/photos/102852.jpg",
+   "w": "static/assets/102852/w.webp",
+   "t": "static/assets/102852/t.webp",
+   "fw": 360,
+   "fh": 242,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "4542",
+   "label": "Display",
+   "category": "Display",
+   "group": "Electronics",
+   "src": "PartNet-Mobility 4542",
+   "input_id": "openimages_b432fc0f7af3a37f",
+   "photo": "static/img/photos/4542.jpg",
+   "w": "static/assets/4542/w.webp",
+   "t": "static/assets/4542/t.webp",
+   "fw": 360,
+   "fh": 245,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "4586",
+   "label": "Display",
+   "category": "display",
+   "group": "Electronics",
+   "src": "PartNet-Mobility 4586",
+   "input_id": "openimages_45a98c6eb828a0c9",
+   "photo": "static/img/photos/4586.jpg",
+   "w": "static/assets/4586/w.webp",
+   "t": "static/assets/4586/t.webp",
+   "fw": 360,
+   "fh": 194,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "10280",
+   "label": "Laptop",
+   "category": "laptop",
+   "group": "Electronics",
+   "src": "PartNet-Mobility 10280",
+   "input_id": "openimages_4bd22ced20a97685",
+   "photo": "static/img/photos/10280.jpg",
+   "w": "static/assets/10280/w.webp",
+   "t": "static/assets/10280/t.webp",
+   "fw": 360,
+   "fh": 257,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "11141",
+   "label": "Laptop",
+   "category": "laptop",
+   "group": "Electronics",
+   "src": "PartNet-Mobility 11141",
+   "input_id": "openimages_f029612bd0b6e86c",
+   "photo": "static/img/photos/11141.jpg",
+   "w": "static/assets/11141/w.webp",
+   "t": "static/assets/11141/t.webp",
+   "fw": 360,
+   "fh": 251,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "11586",
+   "label": "Laptop",
+   "category": "Laptop",
+   "group": "Electronics",
+   "src": "PartNet-Mobility 11586",
+   "input_id": "openimages_403656193dc35cad",
+   "photo": "static/img/photos/11586.jpg",
+   "w": "static/assets/11586/w.webp",
+   "t": "static/assets/11586/t.webp",
+   "fw": 360,
+   "fh": 259,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "103916",
+   "label": "Phone",
+   "category": "phone",
+   "group": "Electronics",
+   "src": "PartNet-Mobility 103916",
+   "input_id": "openimages_496f2bb90818bbb2",
+   "photo": "static/img/photos/103916.jpg",
+   "w": "static/assets/103916/w.webp",
+   "t": "static/assets/103916/t.webp",
+   "fw": 273,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_3"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "3830",
+   "label": "Bottle",
+   "category": "Bottle",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 3830",
+   "input_id": "openimages_2667b07b9aee53e5",
+   "photo": "static/img/photos/3830.jpg",
+   "w": "static/assets/3830/w.webp",
+   "t": "static/assets/3830/t.webp",
+   "fw": 237,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "100129",
+   "label": "Box",
+   "category": "Box",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 100129",
+   "input_id": "openimages_c2ef39931ee62c89",
+   "photo": "static/img/photos/100129.jpg",
+   "w": "static/assets/100129/w.webp",
+   "t": "static/assets/100129/t.webp",
+   "fw": 360,
+   "fh": 267,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0",
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "100189",
+   "label": "Box",
+   "category": "Box",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 100189",
+   "input_id": "openimages_a362901a8fd28363",
+   "photo": "static/img/photos/100189.jpg",
+   "w": "static/assets/100189/w.webp",
+   "t": "static/assets/100189/t.webp",
+   "fw": 360,
+   "fh": 268,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "100224",
+   "label": "Box",
+   "category": "box",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 100224",
+   "input_id": "openimages_0b2bf0ddd0d3cb60",
+   "photo": "static/img/photos/100224.jpg",
+   "w": "static/assets/100224/w.webp",
+   "t": "static/assets/100224/t.webp",
+   "fw": 360,
+   "fh": 247,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0",
+    "joint_2",
+    "joint_1",
+    "joint_3"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "100498",
+   "label": "Cart",
+   "category": "Cart",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 100498",
+   "input_id": "openimages_bca7c60844e003de",
+   "photo": "static/img/photos/100498.jpg",
+   "w": "static/assets/100498/w.webp",
+   "t": "static/assets/100498/t.webp",
+   "fw": 349,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_2",
+    "joint_3",
+    "joint_1",
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "103572",
+   "label": "Knife",
+   "category": "knife",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 103572",
+   "input_id": "openimages_8418f1fac7075c18",
+   "photo": "static/img/photos/103572.jpg",
+   "w": "static/assets/103572/w.webp",
+   "t": "static/assets/103572/t.webp",
+   "fw": 360,
+   "fh": 117,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "14127",
+   "label": "Lamp",
+   "category": "Lamp",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 14127",
+   "input_id": "openimages_aaca2745929bc274",
+   "photo": "static/img/photos/14127.jpg",
+   "w": "static/assets/14127/w.webp",
+   "t": "static/assets/14127/t.webp",
+   "fw": 270,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "15030",
+   "label": "Lamp",
+   "category": "Lamp",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 15030",
+   "input_id": "openimages_01fc51d81619679b",
+   "photo": "static/img/photos/15030.jpg",
+   "w": "static/assets/15030/w.webp",
+   "t": "static/assets/15030/t.webp",
+   "fw": 288,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_2",
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "15913",
+   "label": "Lamp",
+   "category": "Lamp",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 15913",
+   "input_id": "openimages_e916dd0b766b2f40",
+   "photo": "static/img/photos/15913.jpg",
+   "w": "static/assets/15913/w.webp",
+   "t": "static/assets/15913/t.webp",
+   "fw": 242,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "102940",
+   "label": "Pen",
+   "category": "pen",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 102940",
+   "input_id": "openimages_6cde7d312780c7cb",
+   "photo": "static/img/photos/102940.jpg",
+   "w": "static/assets/102940/w.webp",
+   "t": "static/assets/102940/t.webp",
+   "fw": 224,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "10622",
+   "label": "Scissors",
+   "category": "scissors",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 10622",
+   "input_id": "openimages_310192cb7c99bd11",
+   "photo": "static/img/photos/10622.jpg",
+   "w": "static/assets/10622/w.webp",
+   "t": "static/assets/10622/t.webp",
+   "fw": 360,
+   "fh": 192,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "101051",
+   "label": "Suitcase",
+   "category": "Suitcase",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 101051",
+   "input_id": "openimages_06e90333a82a8361",
+   "photo": "static/img/photos/101051.jpg",
+   "w": "static/assets/101051/w.webp",
+   "t": "static/assets/101051/t.webp",
+   "fw": 287,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0",
+    "joint_3",
+    "joint_2",
+    "joint_4",
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "47645",
+   "label": "Suitcase",
+   "category": "Suitcase",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 47645",
+   "input_id": "openimages_23455e0b913929d9",
+   "photo": "static/img/photos/47645.jpg",
+   "w": "static/assets/47645/w.webp",
+   "t": "static/assets/47645/t.webp",
+   "fw": 360,
+   "fh": 273,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "102634",
+   "label": "Toilet",
+   "category": "Toilet",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 102634",
+   "input_id": "openimages_d60e1c25e87d8b45",
+   "photo": "static/img/photos/102634.jpg",
+   "w": "static/assets/102634/w.webp",
+   "t": "static/assets/102634/t.webp",
+   "fw": 313,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0",
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "102698",
+   "label": "Toilet",
+   "category": "toilet",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 102698",
+   "input_id": "openimages_0d0719cfd8e417b7",
+   "photo": "static/img/photos/102698.jpg",
+   "w": "static/assets/102698/w.webp",
+   "t": "static/assets/102698/t.webp",
+   "fw": 289,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_1",
+    "joint_0"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "101377",
+   "label": "Trash can",
+   "category": "TrashCan",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 101377",
+   "input_id": "openimages_2fd7ad929b74c09f",
+   "photo": "static/img/photos/101377.jpg",
+   "w": "static/assets/101377/w.webp",
+   "t": "static/assets/101377/t.webp",
+   "fw": 270,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_1"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "102154",
+   "label": "Trash can",
+   "category": "TrashCan",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 102154",
+   "input_id": "openimages_023dc92993699a49",
+   "photo": "static/img/photos/102154.jpg",
+   "w": "static/assets/102154/w.webp",
+   "t": "static/assets/102154/t.webp",
+   "fw": 304,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_2"
+   ],
+   "axis2d": null
+  },
+  {
+   "cid": "11124",
+   "label": "Trash can",
+   "category": "TrashCan",
+   "group": "Everyday objects",
+   "src": "PartNet-Mobility 11124",
+   "input_id": "scene_030_coco_000000001993__det_007",
+   "photo": "static/img/photos/11124.jpg",
+   "w": "static/assets/11124/w.webp",
+   "t": "static/assets/11124/t.webp",
+   "fw": 332,
+   "fh": 300,
+   "cols": 8,
+   "n": 40,
+   "joints": [
+    "joint_0"
+   ],
+   "axis2d": null
+  }
+ ]
+}

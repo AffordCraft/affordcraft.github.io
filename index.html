@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AffordCraft · Task-Ready Simulation Assets from Single Images</title>
+  <meta name="description" content="AffordCraft builds a physically valid, articulated simulation asset from one RGB photograph and a task instruction, by retrieving and adapting a library asset instead of generating one. 1,703 of 2,000 photographs pass a physical test at 0.8 GPU-minutes per accepted asset.">
+  <meta name="theme-color" content="#050608">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AffordCraft: Scalable Construction of Task-Ready Simulation Assets from Single Images">
+  <meta property="og:description" content="One photo and one instruction in, a physically valid articulated simulation asset out: retrieved from an 11,372-entry library, fitted to the image, and admitted only after a physical test.">
+  <meta property="og:url" content="https://affordcraft.github.io/">
+  <meta property="og:image" content="https://affordcraft.github.io/static/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="static/img/logo.svg">
+  <link rel="preload" href="static/fonts/InterTight-normal-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="static/css/main.css">
+  <script type="importmap">
+    { "imports": { "three": "./static/js/vendor/three.module.min.js", "three/addons/": "./static/js/vendor/addons/" } }
+  </script>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Sections">
+  <a class="nav-brand" href="#top"><img src="static/img/logo.svg" alt=""><span>Afford<b>Craft</b></span></a>
+  <div class="nav-links">
+    <a href="#film">Film</a><a href="#how">How it works</a><a href="#method">Method</a><a href="#library">Library</a>
+    <a href="#gallery">Assets</a><a href="#results">Results</a><a href="#robots">Robots</a><a href="#citation">Cite</a>
+  </div>
+  <div class="nav-cta">
+    <a class="btn btn-sm" href="static/paper/AffordCraft.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>Paper</a>
+    <a class="btn btn-sm btn-primary" href="https://github.com/AffordCraft/AffordCraft" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.3-3.2-.2-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>Code</a>
+  </div>
+</nav>
+
+<!-- ================================================================== HERO -->
+<header class="hero" id="top">
+  <canvas id="galaxy" aria-hidden="true"></canvas>
+  <div class="hero-vignette"></div>
+  <div class="hero-inner">
+    <span class="eyebrow reveal"><i></i>One photo &nbsp;→&nbsp; a simulation asset that moves</span>
+    <h1 class="hero-title reveal" data-delay="1"><span class="a">Afford</span><span class="c">Craft</span></h1>
+    <p class="hero-sub reveal" data-delay="2">Scalable Construction of <em>Task-Ready</em> Simulation Assets from Single Images</p>
+    <div class="authors reveal" data-delay="3">
+      <span>Haoyun Yang<sup>1,2</sup></span>
+      <span>Xueyang Zhou<sup>1,3</sup></span>
+      <span>Ziyi Xie<sup>1,4</sup></span>
+      <span>Yongchao Chen<sup>1,✉</sup></span>
+    </div>
+    <div class="affils reveal" data-delay="3">
+      <span><sup>1</sup>College of AI, Tsinghua University</span>
+      <span><sup>2</sup>School of Computer Science, Chongqing University</span>
+      <span><sup>3</sup>School of Cyber Science and Engineering, Huazhong University of Science and Technology</span>
+      <span><sup>4</sup>College of Design and Engineering, National University of Singapore</span>
+      <span class="note">✉ Corresponding author</span>
+    </div>
+    <div class="cta reveal" data-delay="4">
+      <a class="btn btn-primary" href="static/paper/AffordCraft.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>Paper</a>
+      <a class="btn" href="https://github.com/AffordCraft/AffordCraft" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.3-3.2-.2-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>Code</a>
+      <a class="btn btn-orange" href="#film" data-play-film><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>Watch the film</a>
+      <a class="btn" href="#library"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="1.5"/><circle cx="19" cy="7" r="1.5"/><circle cx="18" cy="18" r="1.5"/><circle cx="6" cy="17" r="1.5"/></svg>Explore the library</a>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <div class="legend">
+      <span><i class="dot-rev"></i>revolute</span><span><i class="dot-pri"></i>prismatic</span><span><i class="dot-both"></i>both</span><span><i class="dot-rig"></i>rigid</span>
+      <span class="cap">Every point is a library entry, placed by the DINOv2 feature AffordCraft retrieves with.</span>
+    </div>
+    <div class="scroll-cue"><span></span>Scroll</div>
+    <div class="legend right"><span class="cap" id="hero-count">11,351 indexed entries · 283 labels</span></div>
+  </div>
+</header>
+
+<!-- ================================================================== FILM -->
+<section id="film">
+  <div class="container">
+    <div class="reveal" style="position:relative">
+      <div class="film-glow"></div>
+      <div class="film-card" id="film-card">
+        <video id="film-video" muted loop playsinline preload="metadata" poster="static/video/film_poster.jpg">
+          <source src="static/video/film_preview.mp4" type="video/mp4">
+        </video>
+        <div class="film-overlay">
+          <div class="film-meta">
+            <span class="eyebrow orange">The film · 1:28</span>
+            <h3>From one photograph to a robot that opens the door.</h3>
+            <p>Sound on. Every shot is recorded from our pipeline and simulator.</p>
+          </div>
+          <button class="play-btn" id="film-play" aria-label="Play the film"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 3.5v17l15-8.5z"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== TL;DR -->
+<section id="tldr" style="padding-top:40px">
+  <div class="container">
+    <span class="eyebrow reveal">In one paragraph</span>
+    <p class="statement reveal" id="statement" style="margin-top:22px">Everyday objects repeat the same few mechanisms: a drawer slides the same way in a desk and in a filing cabinet. So instead of <em>generating</em> an asset for every photo, AffordCraft <em>retrieves</em> one whose parts and joints already work, fits it to the image, and admits it only after it passes a physical test in simulation.</p>
+    <div class="stats reveal">
+      <div class="stat"><span class="tag">single photos</span><div class="num"><span data-count="1703">1,703</span><small>/ 2,000</small></div><p>photographs become <b>physically valid assets</b> (85.15%), from the full image with no box or mask.</p></div>
+      <div class="stat"><span class="tag">cost</span><div class="num"><span class="o" data-count="0.8" data-dec="1">0.8</span><small>GPU-min</small></div><p>per accepted asset at <b>40 s</b> per input. Five generative methods need <b>8–63 GPU-min</b> and pass on at most 45%.</p></div>
+      <div class="stat"><span class="tag">library</span><div class="num"><span class="c" data-count="11372">11,372</span></div><p>library entries. Structure is <b>built once, reused</b>; retrieval stays near <b>50 ms</b>.</p></div>
+      <div class="stat"><span class="tag">clutter</span><div class="num"><span data-count="162">162</span><small>/ 237</small></div><p>annotated objects in 50 cluttered COCO images pass after <b>automatic detection</b>.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2 class="section-title">A kitchen photo, one instruction, <em>six steps</em>.</h2>
+      <p class="lead">A real example from our cluttered-image benchmark (COCO 237928). Scroll through what the pipeline did for the microwave.</p>
+    </div>
+    <div class="story">
+      <div class="story-stage-wrap">
+        <div class="stage" id="stage" data-step="0">
+          <div class="stage-hud"><span><span class="step-idx" id="stage-idx">01</span> / 06 · <span id="stage-name">Ground</span></span><span class="stage-progress" id="stage-progress"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></div>
+
+          <!-- 0: ground -->
+          <div class="stage-layer is-on" data-layer="0">
+            <div class="photo-wrap"><div class="photo-frame">
+              <img src="static/img/kitchen/photo_2x.jpg" alt="Kitchen photograph (COCO 237928)">
+              <svg viewBox="0 0 457 640" preserveAspectRatio="none" id="kitchen-boxes"></svg>
+            </div></div>
+            <div class="instr"><span class="ico">⌘</span><span class="typed" id="typed" data-text="open the microwave door"></span></div>
+          </div>
+
+          <!-- 1/2: retrieve + select -->
+          <div class="stage-layer" data-layer="1">
+            <div class="cands" id="cands"></div>
+            <div class="judge"><span>selector · Qwen3-VL-8B</span><span>category <b>✓</b></span><span>mechanism <b>✓</b></span><span>subtype <b>match</b></span><span>confidence <b>0.95</b></span><span>geometry <b>0.98</b></span></div>
+          </div>
+
+          <!-- 3: adapt -->
+          <div class="stage-layer" data-layer="3">
+            <div class="asset-stage">
+              <figure class="crop" style="margin:0"><img src="static/img/kitchen/crop_microwave_4x.jpg" alt="Detected microwave"><figcaption>detected region</figcaption></figure>
+              <canvas class="asset-canvas" id="adapt-canvas" width="720" height="540"></canvas>
+            </div>
+            <div class="formula"><span class="eq">X′ = sRX + t</span><span class="chip">o′ = sRo + t</span><span class="chip">d′ = Rd</span><span class="chip cyan">revolute limits unchanged</span></div>
+          </div>
+
+          <!-- 4: gate -->
+          <div class="stage-layer" data-layer="4">
+            <div class="gate-asset"><canvas class="asset-canvas" id="gate-canvas" width="720" height="540"></canvas></div>
+            <div class="gate-list" id="gate-list">
+              <div class="gate-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><h4>Export</h4><p>loads in the simulator's format</p></div></div>
+              <div class="gate-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><h4>Inertia</h4><p>collision shape and valid inertia per body</p></div></div>
+              <div class="gate-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><h4>Settle</h4><p>comes to rest under gravity, no interpenetration</p></div></div>
+              <div class="gate-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><h4>Support</h4><p>rests on real contact, no hidden anchor</p></div></div>
+              <div class="gate-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><h4>Joint(door, revolute)</h4><p>the requested part moves the requested way</p></div></div>
+            </div>
+            <div class="pass-stamp" id="pass-stamp">PASS</div>
+          </div>
+
+          <!-- 5: deploy -->
+          <div class="stage-layer deploy" data-layer="5">
+            <video id="deploy-video" muted loop playsinline preload="none" poster="static/video/kitchen_cam05.jpg"><source src="static/video/kitchen_cam05.mp4" type="video/mp4"></video>
+            <div class="caption chips"><span class="chip orange">“open the microwave door fully”</span><span class="chip">scripted teacher · passed</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="steps" id="steps">
+        <div class="step is-active" data-step="0" id="step-0">
+          <span class="k">01 · Ground</span>
+          <h3>Find the object and the part the task acts on.</h3>
+          <p>A multimodal model reads the whole photograph, with no box or mask supplied, and turns it into a query: the <b>category</b>, the <b>part to operate</b>, the <b>action</b> and the <b>motion family</b> (rigid, revolute or prismatic). In a cluttered image it first lists the objects it sees; every detection is then built like a single-object input.</p>
+          <div class="chips"><span class="chip cyan"><b>category</b> Microwave</span><span class="chip"><b>part</b> door</span><span class="chip"><b>action</b> open</span><span class="chip orange"><b>motion</b> revolute</span></div>
+        </div>
+        <div class="step" data-step="1" id="step-1">
+          <span class="k">02 · Retrieve</span>
+          <h3>Rank the library by appearance.</h3>
+          <p>A DINOv2 encoder compares the detected region with a rendered view of every library entry. The pool keeps up to <b>twenty</b> distinct entries: up to twelve with the requested label, the rest of any label, because catalog labels are noisy. Here, the cosine scores of the eight closest microwaves.</p>
+        </div>
+        <div class="step" data-step="2" id="step-2">
+          <span class="k">03 · Select</span>
+          <h3>Let structure overrule the visual rank.</h3>
+          <p>A multimodal model checks the candidates five at a time against their <b>recorded parts and joints</b>: does the category, the mechanism and the subtype match the task? The top three look alike but differ in structure; the <b>fourth</b> has one hinged door, as in the photo, and is selected. A whole group can be rejected.</p>
+        </div>
+        <div class="step" data-step="3" id="step-3">
+          <span class="k">04 · Adapt</span>
+          <h3>Fit the entry, keep the mechanism.</h3>
+          <p>The selected entry is scaled, rotated and placed with one similarity transform. Joint origins and axes move with the geometry, revolute limits stay, prismatic limits scale. <b>Every body and every joint is kept</b>: nothing about the mechanism is re-estimated from the image.</p>
+        </div>
+        <div class="step" data-step="4" id="step-4">
+          <span class="k">05 · Gate</span>
+          <h3>Admit it only if physics agrees.</h3>
+          <p>The asset must export, carry valid inertia, settle under gravity, rest on real support, and move at the requested part. A failed candidate gets one repair, then the next eligible candidate is tried; the survivor is re-checked in a <b>separate simulator process</b>.</p>
+        </div>
+        <div class="step" data-step="5" id="step-5">
+          <span class="k">06 · Use</span>
+          <h3>Drop it into a scene and let a robot use it.</h3>
+          <p>The accepted assets are composed into one scene, where a scripted teacher opens the microwave door. The same assets feed our manipulation tasks: <b>single-object and composed-scene tasks</b> that trained policies complete from initial states they have not seen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== METHOD -->
+<section id="method">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Method</span>
+      <h2 class="section-title">Structure is built <em>once</em>, then reused.</h2>
+      <p class="lead">Generative methods re-estimate parts, joints and physics for every photograph, and most of their outputs do not settle or move in simulation. AffordCraft turns single-view reconstruction into a constrained matching problem over mechanisms that were modeled and checked once, in the library.</p>
+    </div>
+    <div class="pipeline-card reveal" data-zoom="static/img/fig/pipeline.webp"><img src="static/img/fig/pipeline.webp" alt="AffordCraft construction pipeline" loading="lazy"></div>
+    <div class="principles">
+      <div class="principle reveal"><span class="n">01</span><h4>Task-conditioned query</h4><p>The instruction fixes which part must move and how. Removing the task condition costs <b style="color:#fff">22 points</b> of correctly built assets.</p></div>
+      <div class="principle reveal" data-delay="1"><span class="n">02</span><h4>Structure-aware selection</h4><p>Candidates are judged by recorded bodies and joints, not only by appearance: the selector rejects 1,093 of 5,874 candidate attempts.</p></div>
+      <div class="principle reveal" data-delay="2"><span class="n">03</span><h4>Mechanism-preserving adapter</h4><p>Jointed entries are imported with every body and joint intact. Without the articulation adapter, 80 fewer assets are correct (−40 points).</p></div>
+      <div class="principle reveal" data-delay="3"><span class="n">04</span><h4>Physical feedback</h4><p>A failed candidate triggers repair and reselection. Removing reselection costs 11 points; removing the decomposition cascade, 8.</p></div>
+    </div>
+    <div class="contract reveal">
+      <div class="formula-big"><i>G</i>(Â) = Export<span class="op">∧</span>Inertia<span class="op">∧</span>Settle<span class="op">∧</span>Support<span class="op">∧</span>Joint(<i>p</i>, <i>m</i>)</div>
+      <p>The physical gate. Every method in our comparison is scored by the same gate: an asset counts only if it exports, carries valid inertia, settles under gravity, rests on real support, and moves at the requested part <i>p</i> with motion family <i>m</i>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== LIBRARY -->
+<section id="library">
+  <div class="container-wide">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Library explorer</span>
+      <h2 class="section-title">11,372 entries. <em class="cyan">One feature space.</em></h2>
+      <p class="lead">Each point is an indexed library entry, placed by a 3D t-SNE of the DINOv2 feature that retrieval ranks with. Drag to orbit, scroll to zoom, hover for details, or search a category.</p>
+    </div>
+    <div class="explorer reveal" id="explorer">
+      <canvas id="explorer-canvas"></canvas>
+      <div class="explorer-ui">
+        <div class="seg" id="type-filter">
+          <button class="on" data-t="all">All</button>
+          <button data-t="1"><i class="dot-rev"></i>Revolute</button>
+          <button data-t="2"><i class="dot-pri"></i>Prismatic</button>
+          <button data-t="0"><i class="dot-rig"></i>Rigid</button>
+        </div>
+        <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="cat-search" type="search" placeholder="Search a category, e.g. Microwave" list="cat-list" autocomplete="off"><span class="count" id="cat-count"></span></label>
+        <datalist id="cat-list"></datalist>
+      </div>
+      <div class="explorer-panel">
+        <h4>Library composition</h4>
+        <div class="big">11,372<small>entries · 283 labels</small></div>
+        <div class="comp"><i style="width:79.02%;background:#9fb0c8"></i><i style="width:20.53%;background:var(--orange)"></i><i style="width:.36%;background:var(--cyan)"></i><i style="width:.09%;background:var(--amber)"></i></div>
+        <div class="comp-legend">
+          <span><i style="background:#9fb0c8"></i>Objaverse<b>8,986</b></span>
+          <span><i style="background:var(--orange)"></i>PartNet-Mobility<b>2,335</b></span>
+          <span><i style="background:var(--cyan)"></i>Google Scanned<b>41</b></span>
+          <span><i style="background:var(--amber)"></i>YCB<b>10</b></span>
+        </div>
+        <div class="comp-legend" style="margin-top:12px;border-top:1px solid var(--line);padding-top:10px">
+          <span><i class="dot-rev" style="border-radius:50%"></i>revolute<b>1,790</b></span>
+          <span><i class="dot-pri" style="border-radius:50%"></i>prismatic<b>1,040</b></span>
+          <span><i class="dot-rig" style="border-radius:50%"></i>rigid<b>9,037</b></span>
+          <span><i style="background:transparent"></i>retrieval<b>≈50 ms</b></span>
+        </div>
+      </div>
+      <div class="tooltip" id="tooltip"><div class="t"></div><div class="s"></div></div>
+      <div class="explorer-hint">drag · scroll · hover</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== GALLERY -->
+<section id="gallery">
+  <div class="container-wide">
+    <div class="section-head reveal">
+      <span class="eyebrow orange">Constructed assets</span>
+      <h2 class="section-title">Photographs in. <em>Mechanisms</em> out.</h2>
+      <p class="lead">1,132 of the 1,703 accepted assets have a movable joint. Below, assets built from Open Images photographs in the formal run, rendered in Isaac Sim while every joint is driven. Hover to highlight the moving parts.</p>
+    </div>
+    <div class="filters reveal" id="gallery-filters"></div>
+    <div class="gallery" id="gallery-grid"></div>
+    <p class="gallery-note">Inset: the input photograph. Assets keep the library entry's appearance: the result is a functional substitute with the requested mechanism, not a copy of the photographed object.</p>
+  </div>
+</section>
+
+<!-- ================================================================== RESULTS -->
+<section id="results">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Results</span>
+      <h2 class="section-title">More assets that work, for a <em>fraction</em> of the compute.</h2>
+      <p class="lead">Every method receives the whole photograph and the same instruction, and every output is scored by the same physical gate. Five generative methods run on all 2,000 inputs; the two routes that call commercial models run on a 200-input subset that keeps every category.</p>
+    </div>
+    <div class="results-grid">
+      <div class="panel reveal">
+        <h3>Accepted share vs. cost</h3>
+        <p class="sub">Physical pass rate against GPU minutes per accepted asset (log scale). Filled: as delivered; hollow: after our common physical adaptation.</p>
+        <div class="chart" id="chart-scatter"></div>
+      </div>
+      <div class="panel reveal" data-delay="1">
+        <h3>Library growth</h3>
+        <p class="sub">Five nested libraries answer the same 2,000 queries. Coverage rises only when new categories arrive; top-1 agreement rises at every step.</p>
+        <div class="chart" id="chart-scaling"></div>
+      </div>
+      <div class="panel span-2 reveal">
+        <h3>Single-photograph construction from the full image</h3>
+        <p class="sub">Table 1 of the paper. Per-input columns come from a clean timing run on 32 subset inputs with one RTX 5090 per worker.</p>
+        <div class="table-wrap"><table class="res" id="table-main"></table></div>
+        <p class="tnote">Native: passes the physical gate as delivered · Adapted: passes after our common physical adaptation · Artic.: accepted with a movable joint. ‡ adapted path (no physical parameters) · § timed in the method's own API run · – not applicable · blank: not measured.</p>
+      </div>
+      <div class="panel reveal">
+        <h3>What each component is worth</h3>
+        <p class="sub">Paired one-factor study on the 200-input subset: change in correctly built assets (requested category and passing the gate), percentage points. Solid bars: significant (exact McNemar, p &lt; 10⁻⁴).</p>
+        <div class="chart" id="chart-ablation"></div>
+      </div>
+      <div class="panel reveal" data-delay="1">
+        <h3>Cluttered images</h3>
+        <p class="sub">50 COCO images with 237 annotated objects. The pipeline detects the objects itself; annotations are used only for scoring.</p>
+        <div class="mini-stats" style="grid-template-columns:repeat(2,1fr)">
+          <div><b>575</b><span>objects detected</span></div>
+          <div><b style="color:var(--green)">563</b><span>of them pass the physical gate</span></div>
+          <div><b>172</b><span>of 237 annotated objects found (IoU ≥ 0.5)</span></div>
+          <div><b style="color:var(--orange-2)">162</b><span>of 237 pass; every object passes in 15 of 50 images</span></div>
+        </div>
+        <p class="tnote">Detection is the limiting step: 563 of 575 detections are built into valid assets.</p>
+      </div>
+      <div class="panel span-2 reveal">
+        <h3>Side by side with every external method</h3>
+        <p class="sub">The same inputs through all seven external methods and AffordCraft, each output at rest in the same simulator (appendix gallery; click to enlarge).</p>
+        <div class="zoom-card" data-zoom="static/img/fig/compare_a.webp"><img src="static/img/fig/compare_header.webp" alt="" loading="lazy"><img src="static/img/fig/compare_a.webp" alt="Qualitative comparison of all methods" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== ROBOTS -->
+<section id="robots">
+  <div class="container-wide">
+    <div class="section-head reveal">
+      <span class="eyebrow orange">Task-ready means robot-ready</span>
+      <h2 class="section-title">From a photo to a <em>scene</em> a robot can work in.</h2>
+      <p class="lead">The kitchen assets from the walkthrough, composed into one scene and viewed from the photograph's own camera. Drag the slider to compare. On the right, the scripted teacher opens the microwave door in that scene.</p>
+    </div>
+    <div class="twin-grid reveal">
+      <div class="compare" id="compare" style="--pos:50%">
+        <img src="static/img/kitchen/twin_initial.jpg" alt="Simulated kitchen from the photo's viewpoint">
+        <img class="top" src="static/img/kitchen/photo_2x.jpg" alt="Original kitchen photograph">
+        <span class="tag l">Simulation</span><span class="tag r">Photograph</span>
+        <div class="handle"></div>
+      </div>
+      <div class="video-card" id="kitchen-video">
+        <div class="tabs" id="kitchen-tabs"><button class="on" data-src="kitchen_cam05">Left</button><button data-src="kitchen_cam00">Doorway</button><button data-src="kitchen_photo">Photo view</button></div>
+        <video muted loop playsinline preload="none" poster="static/video/kitchen_cam05.jpg" data-autoplay><source src="static/video/kitchen_cam05.mp4" type="video/mp4"></video>
+      </div>
+    </div>
+    <div class="section-head reveal" style="margin-top:clamp(72px,10vh,120px);margin-bottom:28px">
+      <h3 class="section-title" style="font-size:clamp(28px,3vw,42px)">Ten composed scenes, twenty tasks.</h3>
+      <p class="lead">Scenes chain an articulation with a placement, such as opening a door and putting a cup inside. The scripted teacher completes 273 of 320 episodes; a head trained on its demonstrations, on frozen OpenVLA-OFT features, completes tasks from initial states it has not seen. Videos at 3× speed; inset: the wrist camera.</p>
+    </div>
+    <div class="scene-grid" id="scene-grid"></div>
+  </div>
+</section>
+
+<!-- ================================================================== CITATION -->
+<section id="citation">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Citation</span>
+      <h2 class="section-title">BibTeX</h2>
+    </div>
+    <div class="bib reveal">
+      <button class="btn btn-sm copy" id="copy-bib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+<pre id="bibtex"><span class="k">@misc</span>{yang2026affordcraft,
+  <span class="f">title</span>        = {AffordCraft: Scalable Construction of Task-Ready Simulation Assets from Single Images},
+  <span class="f">author</span>       = {Yang, Haoyun and Zhou, Xueyang and Xie, Ziyi and Chen, Yongchao},
+  <span class="f">year</span>         = {2026},
+  <span class="f">howpublished</span> = {\url{https://affordcraft.github.io/}}
+}</pre>
+    </div>
+    <p class="ack reveal">The library draws on <a href="https://sapien.ucsd.edu/browse" target="_blank" rel="noopener">PartNet-Mobility</a>, <a href="https://objaverse.allenai.org/" target="_blank" rel="noopener">Objaverse</a>, <a href="https://research.google/blog/scanned-objects-by-google-research-a-dataset-of-3d-scanned-common-household-items/" target="_blank" rel="noopener">Google Scanned Objects</a> and <a href="https://www.ycbbenchmarks.com/" target="_blank" rel="noopener">YCB</a>; input photographs come from <a href="https://storage.googleapis.com/openimages/web/index.html" target="_blank" rel="noopener">Open Images</a> and <a href="https://cocodataset.org/" target="_blank" rel="noopener">COCO</a>. Simulation runs in NVIDIA Isaac Sim; retrieval uses DINOv2, and grounding and selection use Qwen3-VL. We thank the authors of every external method we compared with for releasing their code.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container row">
+    <span class="brand"><img src="static/img/logo.svg" alt="">AffordCraft</span>
+    <span>© 2026 The AffordCraft authors · <a href="https://github.com/AffordCraft/AffordCraft" target="_blank" rel="noopener">GitHub</a> · <a href="mailto:yongchaochen12@gmail.com">Contact</a></span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox"><span class="x">×</span></div>
+
+<script type="module" src="static/js/main.js"></script>
+</body>
+</html>
