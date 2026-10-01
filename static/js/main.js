@@ -1,6 +1,6 @@
 import { loadLibrary, createGalaxy, TYPE_NAMES } from './galaxy.js';
 import { renderTable, renderScatter, renderScaling, renderAblation } from './charts.js';
-import { SpritePlayer, buildGallery, play, stop, loadImage } from './gallery.js';
+import { SpritePlayer, play, stop } from './gallery.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const SHOT = new URLSearchParams(location.search).has('shot');
@@ -70,7 +70,6 @@ if (st) {
 /* ------------------------------------------------------------ hero galaxy + explorer */
 loadLibrary().then((lib) => {
   createGalaxy($('#galaxy'), lib, { parallax: true, dust: true, spin: 0.035, camZ: 20, camY: 2.5, pointScale: 1.05 });
-  $('#hero-count').textContent = `${fmt(lib.n)} indexed entries · ${lib.meta.categories.length} labels`;
   const exCanvas = $('#explorer-canvas');
   let ex = null;
   const start = () => {
@@ -207,7 +206,6 @@ new IntersectionObserver(([e]) => { if (e.isIntersecting && stepNow <= 0) { step
 /* ------------------------------------------------------------ gallery + stage sprites */
 fetch('static/assets/assets.json').then((r) => (r.ok ? r.json() : null)).then((data) => {
   if (!data) return;
-  buildGallery($('#gallery-grid'), $('#gallery-filters'), data);
   const mw = data.assets.find((a) => a.cid === '7310') || data.assets[0];
   adaptPlayer = new SpritePlayer($('#adapt-canvas'), mw, { pad: 0.04, offsetY: 0, hold0: 0.4, open: 1.6, hold1: 1.2, close: 1.4 });
   gatePlayer = new SpritePlayer($('#gate-canvas'), mw, { pad: 0.02, offsetY: 0, tint: true });
@@ -241,15 +239,35 @@ if (cmp) {
     requestAnimationFrame(f);
   }, { threshold: 0.6 }).observe(cmp);
 }
-const kv = $('#kitchen-video video');
-vidObs.observe(kv);
-$('#kitchen-tabs').addEventListener('click', (e) => {
-  const b = e.target.closest('button'); if (!b) return;
-  $$('#kitchen-tabs button').forEach((x) => x.classList.toggle('on', x === b));
-  kv.poster = `static/video/${b.dataset.src}.jpg`; kv.src = `static/video/${b.dataset.src}.mp4`;
-  kv.style.objectFit = b.dataset.src === 'kitchen_photo' ? 'contain' : 'cover';
-  kv.play().catch(() => {});
-});
+/* ------------------------------------------------------------ photo -> simulation twins */
+// photographs from the paper's cluttered COCO set; each scene is rendered from the photograph's own camera
+const TWINS = [
+  { id: 'k011', label: 'Kitchen', task: 'open the dishwasher door', ar: '640 / 425', var: '640 / 425' },
+  { id: 'k4', label: 'Kitchen', task: 'open the microwave door', ar: '457 / 640', var: '4 / 3', portrait: true,
+    photo: 'static/img/kitchen/photo_2x.jpg', sim: 'static/img/kitchen/twin_initial.jpg', video: 'static/video/kitchen_cam05', thumb: 'static/img/twins/k4/thumb.jpg' },
+  { id: 'k035', label: 'Galley kitchen', task: 'open the refrigerator door', ar: '640 / 427', var: '640 / 427', still: true },
+  { id: 'o033', label: 'Home office', task: 'close the laptop', ar: '640 / 427', var: '640 / 427' },
+  { id: 'o007', label: 'Office', task: 'close the laptop', ar: '4 / 3', var: '4 / 3' },
+  { id: 'b030', label: 'Bedroom', task: 'open the trash-can lid', ar: '640 / 419', var: '16 / 9' },
+];
+const twinVideo = $('#twin-video video');
+vidObs.observe(twinVideo);
+function showTwin(k) {
+  const tw = TWINS[k], base = `static/img/twins/${tw.id}/`, vid = tw.video || `static/video/twins/${tw.id}`;
+  $('#cmp-sim').src = tw.sim || base + 'sim.jpg';
+  $('#cmp-photo').src = tw.photo || base + 'photo.jpg';
+  cmp.style.setProperty('--ar', tw.ar); cmp.classList.toggle('portrait', !!tw.portrait); cmp.style.setProperty('--pos', '50%');
+  $('#twin-video').style.setProperty('--var', tw.var);
+  const still = $('#twin-still');
+  if (tw.still) { twinVideo.pause(); twinVideo.hidden = true; still.src = vid + '.jpg'; still.hidden = false; }
+  else { still.hidden = true; twinVideo.hidden = false; twinVideo.poster = vid + '.jpg'; twinVideo.src = vid + '.mp4'; twinVideo.play().catch(() => {}); }
+  $('#twin-cap').textContent = `“${tw.task}”`;
+  $$('#twin-thumbs button').forEach((b, i) => b.classList.toggle('on', i === k));
+}
+$('#twin-thumbs').innerHTML = TWINS.map((tw, i) => `<button class="${i === 0 ? 'on' : ''}" aria-label="${tw.label}">` +
+  `<img src="${tw.thumb || `static/img/twins/${tw.id}/thumb.jpg`}" alt="" loading="lazy"><span>${tw.label}</span></button>`).join('');
+$$('#twin-thumbs button').forEach((b, i) => b.addEventListener('click', () => showTwin(i)));
+cmp.style.setProperty('--ar', TWINS[0].ar); $('#twin-video').style.setProperty('--var', TWINS[0].var);
 const SCENES = [
   ['microwave_box__policy', 'Open the microwave door fully and put the box inside', 'pol'],
   ['cabinet1_box__policy', 'Open the cabinet door fully and put the box inside', 'pol'],
@@ -265,7 +283,7 @@ const SCENES = [
 $('#scene-grid').innerHTML = SCENES.map(([f, cap, k]) => `
   <div class="scard reveal"><div class="v"><video muted loop playsinline preload="none" poster="static/video/scenes/${f}.jpg"><source src="static/video/scenes/${f}.mp4" type="video/mp4"></video>
   <span class="badge ${k}">${k === 'pol' ? 'trained policy · held-out' : 'scripted teacher'}</span></div>
-  <div class="cap">“${cap}”<i>${k === 'pol' ? 'first passed held-out episode, round 2' : 'first passed demonstration'}</i></div></div>`).join('');
+  <div class="cap">“${cap}”</div></div>`).join('');
 $$('#scene-grid video').forEach((v) => vidObs.observe(v));
 $$('#scene-grid .reveal').forEach((el) => revObs.observe(el));
 
